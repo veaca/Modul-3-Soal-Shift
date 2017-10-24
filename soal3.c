@@ -15,13 +15,17 @@ void *MinusLohan (void *ptr){
 //		printf ("%d ", i);
 		sleep(1);
 	}
-	lohan -= 15;}
+	lohan -= 15;
+//	if (lohan<50) printf ("Lohan Lapar! Minta Makan Oi!\n");
+	}
 }
 void *MinusKepiting (void *ptr){
 	int i, length=20;
 	while (stat_kepiting==0){
 	for (int i=0;i<=length;i++) sleep (1);
-	kepiting -= 10;}
+	kepiting -= 10;
+//	if (kepiting<50) printf ("Kepiting Lapar! Minta Makan Oi!\n");
+	}
 }
 
 
@@ -37,6 +41,8 @@ int main(){
 	err2 = pthread_create (&(tid[2]), NULL, MinusKepiting, NULL);
 //	for (int i=1;i<=2;i++) pthread_join (tid[i],NULL);
 	while (1){
+		if (lohan<50) printf ("Lohan Lapar! Minta Makan Oi!\n");
+		if (kepiting<50) printf ("Kepiting Lapar! Minta Makan Oi!\n");
 		//err = pthread_create (&(tid[1]), NULL, MinusLohan, NULL);
 		printf ("---Pilih fitur---\n1. Beri makan lohan \n2. Beri makan kepiting\n");
 		printf ("3. Lihat status\n");
