@@ -25,6 +25,38 @@ void *gerak1 (void *ptr){
 	}
 }
 
+void *gerak2 (void *ptr){
+        int jumlah;
+        printf ("Masukkan jumlah ranjau yang ingin dipasang: ");
+        scanf ("%d", &jumlah);
+        for (int i=1;i<=4;i++){
+                int pos;
+                printf ("Ranjau %d: ", i);
+                scanf ("%d", &pos);
+                kotak2[pos]=1;
+        }
+}
+
+void *tebak1 (void *ptr){
+        for (int i=1;i<=4;i++){
+                int pos;
+                printf ("Tebakan %d: ", i);
+                scanf ("%d", &pos);
+                tebakan1[pos]=1;
+        }
+}
+
+void *tebak2 (void *ptr){
+        for (int i=1;i<=4;i++){
+                int pos;
+                printf ("Tebakan %d: ", i);
+                scanf ("%d", &pos);
+                tebakan2[pos]=1;
+        }
+}
+
+
+
 int main(){
 	printf ("Masukkan nama pemain 1: ");
 	scanf ("%s",pemain1);
