@@ -10,7 +10,10 @@ typedef struct{
 } nyari;
 nyari orang[20];
 
+void caridong(){
+	
 
+}
 int main(){
 	int i=0,j=0,k=0;
 	scanf("%s %[^\n]",&hehe,&input);
@@ -22,12 +25,16 @@ int main(){
 		if(input[i]==32){
 			j=j+1;
 			k=0;
-			printf("berhasil");
+			printf("berhasil\n");
 		}
 	} 
-	printf("%s \n",input);
-	printf("%s\n",orang[0].nama);
-	printf("%s\n",orang[1].nama);
-	
+	//printf("%s \n",input);
+	FILE *fp, *novel;
+	novel = fopen("novel.txt", "r");
+	char h3h3,nama[50];
+	fscanf(novel,"%[^\n]",&input);
+	printf("%s",input);
+
+	//printf("%s\n",orang[0].nama);
 	return 0;
 }
