@@ -1,13 +1,15 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 char input[2000];
 char hehe[10];
 char h3h3[1000];
 char cari[20][20];
 int banyaknya[1000];
-pthread_t tid[1000];
+pthread_t tid[10];
 typedef struct{
 	char nama[20];
 } nyari;
@@ -19,13 +21,17 @@ darifile h2h2[2000];
 int z,b=0,j=0,count=0;
 void* caridong(void *arg){
 	pthread_t id=pthread_self();
+	printf("berhasil caridong\n");
 	while(count<=j){
 		if(pthread_equal(id,tid[count])){
+			printf("berhasil pthread count %d\n",count);
 			for(z=0;z<=b;z++){
+				printf("berhasil masuk z %d loop\n",z);
 				if(orang[count].nama==h2h2[z].perkata){
 					banyaknya[count]=banyaknya[count]+1;
 				}
 			}
+			printf("%s : %d\n",orang[count].nama,banyaknya[count]);
 		}
 	}
 
@@ -43,7 +49,7 @@ int main(){
                         //pthread_create(&(tid[j]),NULL,&caridong,NULL);
                         b=b+1;
                         c=0;
-                        //printf("berhasil\n");
+  //                      printf("berhasil\n");
                 }
         } 
 	for(i=0;i<=strlen(input);i++){
@@ -52,10 +58,11 @@ int main(){
 		//printf("%c\n",orang[1].nama[k]);
 		k++;
 		if(input[i]==32){
+//			printf("coba\n");
 			pthread_create(&(tid[j]),NULL,&caridong,NULL);
 			j=j+1;
 			k=0;
-			printf("berhasil\n");
+//			printf("berhasil\n");
 		}
 	} 
 	
