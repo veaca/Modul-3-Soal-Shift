@@ -71,7 +71,19 @@ void cek2(){
         for (int i=1;i<=16;i++) tebakan1[i]=0;
 }
 
+bool keluar1(){
+	for (int i=1;i<=16;i++) {
+		if (kotak1[i]==0) return false;
+	}
+	return true;
+}
 
+bool keluar2(){
+        for (int i=1;i<=16;i++) {
+                if (kotak2[i]==0) return false;
+        }
+        return true;
+}
 int main(){
 	int move1, guess1,move2,guess2, gerak=1;
 	printf ("Masukkan nama pemain 1: ");
@@ -96,6 +108,8 @@ int main(){
 			cek2();
                 gerak=1;
                 }
+		if (poin1 ==10 || poin2==10 || keluar1 || keluar2 )break;
+
 /*		char input[100];
 		scanf ("%s",input);
 		if (strcmp("Cek", input) == 0) printf ("Poin %s : %d\nPoin %s : %d", pemain1, poin1, pemain2, poin2); */
