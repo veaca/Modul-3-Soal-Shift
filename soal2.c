@@ -44,22 +44,26 @@ void *gerak2 (void *ptr){
 
 void *tebak1 (void *ptr){
 	while (status1!=1){}
+	system("clear");
         for (int i=1;i<=4;i++){
                 int pos;
                 printf ("Tebakan %d: Posisi ", i);
                 scanf ("%d", &pos);
                 tebakan1[pos]=1;
         }
+	system("clear");
 }
 
 void *tebak2 (void *ptr){
 	while (status1!=1) {}
+	system("clear");
         for (int i=1;i<=4;i++){
                 int pos;
                 printf ("Tebakan %d: Posisi ", i);
                 scanf ("%d", &pos);
                 tebakan2[pos]=1;
         }
+	system("clear");
 }
 
 void cek1(){
@@ -103,25 +107,30 @@ int main(){
 			printf ("Pemain %s : Masukkan ranjau\n", pemain1);
 			status1=0;
 			move1 = pthread_create (&tid[1], NULL, gerak1, NULL);
-			if (status1==1) printf ("Pemain %s : Menebak\n", pemain2);
+		//	if (status1==1) printf ("Pemain %s : Menebak\n", pemain2);
 			guess2 = pthread_create (&tid[4], NULL, tebak2, NULL);
 			pthread_join (tid[1], NULL);
+			//system("clear");
 			pthread_join (tid[4], NULL);
+	//		if (status1==1) printf ("Pemain %s : Menebak\n", pemain1);
 			cek1();
 		gerak=2;
-		system("clear");
+		printf ("Poin %s: %d\nPoin %s: %d\n", pemain1, poin1, pemain2, poin2);
+	//	system("clear");
 		}
 		if (gerak==2){
 			printf ("Pemain %s : Masukkan ranjau\n", pemain2);
 			status1=0;
                         move2 = pthread_create (&tid[3], NULL, gerak1, NULL);
-			if (status1==1) printf ("Pemain %s : Menebak\n", pemain1);
+		//	if (status1==1) printf ("Pemain %s : Menebak\n", pemain1);
                         guess1 = pthread_create (&tid[2], NULL, tebak2, NULL);
                         pthread_join (tid[3], NULL);
                         pthread_join (tid[2], NULL);
+	//		if (status1==1) printf ("Pemain %s : Menebak\n", pemain1);
 			cek2();
                 gerak=1;
-		system("clear");
+		 printf ("Poin %s: %d\nPoin %s: %d\n", pemain1, poin1, pemain2, poin2);
+//		system("clear");
                 }
 		if (poin1 ==10 || poin2==10 || keluar1()==1 || keluar2()==1 )break;
 
