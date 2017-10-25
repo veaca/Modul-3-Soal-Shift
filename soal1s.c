@@ -32,7 +32,7 @@ void lihat(){
 
 }
 void menu(){
-	system("clear");
+//	system("clear");
 	printf("---MENU---\n");
 	printf("1.LIHAT STOK\n");
 	printf("2.TAMBAH STOK : [nama barang] [banyaknya]\n");
@@ -53,12 +53,13 @@ int main(){
 	jumlah = shmat(shmid,NULL,0);
 	for(i=0;i<6;i++) jumlah[i]=0;
 	while(1){
-		//menu();
+		menu();
 		scanf("%s",&temp);
 		if (strcmp(temp,"LIHAT")==0){
 			scanf("%s",&temp1);
 	//		printf("masuk lihat\n");
 			lihat();
+//			system("pause");
 		}
 		else if (strcmp(temp,"EXIT")==0) break;
 		else if (strcmp(temp,"MP4A1")==0){ 
