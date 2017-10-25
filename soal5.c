@@ -85,7 +85,7 @@ int main(){
         } 
 	fclose(novel);
 
-	for(haha=0;haha<=j;haha){
+	for(haha=0;haha<=j;haha++){
 		pthread_create(&(tid[haha]),NULL,&caridong,NULL);
 	}
 	pthread_join(tid[0], NULL);
